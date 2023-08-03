@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="TroiaStudio" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <!-- Rulesets -->
+    <rule ref="./vendor/contributte/qa/ruleset-8.2.xml">
+        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
+    </rule>
+    <config name="php_version" value="80200"/>
+
+    <!-- Rules -->
+    <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+        <properties>
+            <property name="rootNamespaces" type="array">
+                <element key="src" value="TroiaStudio\SshKeyValidator"/>
+                <element key="tests" value="Tests"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+        <properties>
+            <property name="declareOnFirstLine" value="0"/>
+        </properties>
+    </rule>
+
+    <rule ref="Generic.WhiteSpace.DisallowTabIndent" />
+
+    <!-- Excludes -->
+    <exclude-pattern>/tests/tmp</exclude-pattern>
+</ruleset>

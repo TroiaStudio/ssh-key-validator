@@ -1,5 +1,6 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types = 1);
 
 namespace TroiaStudio\SshKeyValidator;
 
@@ -11,8 +12,9 @@ use TroiaStudio\SshKeyValidator\Validators\SkEcdsaValidator;
 use TroiaStudio\SshKeyValidator\Validators\SKEd25519Validator;
 use TroiaStudio\SshKeyValidator\Validators\Validator;
 
-class KeyValidator
+final class KeyValidator
 {
+
     /** @var Validator[] */
     private array $validators;
 
@@ -52,4 +54,5 @@ class KeyValidator
 
         return false;
     }
+
 }

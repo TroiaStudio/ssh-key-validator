@@ -1,5 +1,8 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types = 1);
+
+namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use TroiaStudio\SshKeyValidator\KeyValidator;
@@ -9,9 +12,11 @@ use TroiaStudio\SshKeyValidator\Validators\Ed25519Validator;
 use TroiaStudio\SshKeyValidator\Validators\RsaValidator;
 use TroiaStudio\SshKeyValidator\Validators\SkEcdsaValidator;
 use TroiaStudio\SshKeyValidator\Validators\SKEd25519Validator;
+use TroiaStudio\SshKeyValidator\Validators\Validator;
 
 final class KeyValidatorTest extends TestCase
 {
+
     public function testValidateAllOk(): void
     {
         $validators = [
@@ -121,7 +126,10 @@ final class KeyValidatorTest extends TestCase
         $this->validTest($validators, $key, false);
     }
 
-    protected function validTest(array $validators, $key, bool $expected): void
+    /**
+     * @param Validator[] $validators
+     */
+    protected function validTest(array $validators, string $key, bool $expected): void
     {
         $validator = new KeyValidator($validators);
         $this->assertSame($expected, $validator->validate($key));

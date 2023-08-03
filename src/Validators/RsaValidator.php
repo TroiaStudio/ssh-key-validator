@@ -1,11 +1,14 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types = 1);
 
 namespace TroiaStudio\SshKeyValidator\Validators;
 
-use TroiaStudio\SshKeyValidator\Enums\SSH_KEY;
+use TroiaStudio\SshKeyValidator\Enums\SshKey;
 
 class RsaValidator extends AbstractValidator
 {
-    public SSH_KEY $type = SSH_KEY::RSA;
+
+    public SshKey $type = SshKey::RSA;
+
 }

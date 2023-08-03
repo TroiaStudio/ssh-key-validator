@@ -1,13 +1,15 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types = 1);
 
 namespace TroiaStudio\SshKeyValidator;
 
-use TroiaStudio\SshKeyValidator\Enums\SSH_KEY;
+use TroiaStudio\SshKeyValidator\Enums\SshKey;
 
 class Key
 {
-    protected SSH_KEY $key;
+
+    protected SshKey $key;
 
     protected string $type;
 
@@ -17,7 +19,7 @@ class Key
 
     protected string $comment = '';
 
-    public function __construct(SSH_KEY $key, string $value, string $prefix, string $comment = '')
+    public function __construct(SshKey $key, string $value, string $prefix, string $comment = '')
     {
         $this->key = $key;
         $this->type = $key->name;
@@ -45,4 +47,5 @@ class Key
     {
         return $this->comment;
     }
+
 }

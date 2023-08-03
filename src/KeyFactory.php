@@ -1,9 +1,10 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types = 1);
 
 namespace TroiaStudio\SshKeyValidator;
 
-use TroiaStudio\SshKeyValidator\Enums\SSH_KEY;
+use TroiaStudio\SshKeyValidator\Enums\SshKey;
 use TroiaStudio\SshKeyValidator\Validators\DSSValidator;
 use TroiaStudio\SshKeyValidator\Validators\EcdsaValidator;
 use TroiaStudio\SshKeyValidator\Validators\Ed25519Validator;
@@ -14,12 +15,13 @@ use TroiaStudio\SshKeyValidator\Validators\Validator;
 
 class KeyFactory
 {
+
     /**
      * @param Validator[] $validators
      */
     public static function create(string $key, array $validators = []): ?Key
     {
-        if (empty($validators)) {
+        if (count($validators) === 0) {
             $validators = [
                 new DSSValidator(),
                 new EcdsaValidator(),
@@ -45,9 +47,9 @@ class KeyFactory
      * @internal
      * @param array<int, array<int, string>> $data
      */
-    public static function createFromValidation(array $data, SSH_KEY $type): Key
+    public static function createFromValidation(array $data, SshKey $type): Key
     {
-        return new Key($type, $data[2][0], $data[1][0], empty($data[3]) ? '' : trim($data[3][0]));
+        return new Key($type, $data[2][0], $data[1][0], trim($data[3][0]));
     }
 
 }
