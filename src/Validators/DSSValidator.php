@@ -7,8 +7,5 @@ use TroiaStudio\SshKeyValidator\Enums\SSH_KEY;
 
 class DSSValidator extends AbstractValidator
 {
-    public function validate(string $key): bool
-    {
-        return $this->validateByPattern($key, SSH_KEY::DSS);
-    }
+    public SSH_KEY $type = SSH_KEY::DSS;
 }

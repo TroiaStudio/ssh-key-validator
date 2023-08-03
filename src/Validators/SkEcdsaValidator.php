@@ -5,7 +5,7 @@ namespace TroiaStudio\SshKeyValidator\Validators;
 
 use TroiaStudio\SshKeyValidator\Enums\SSH_KEY;
 
-class SKEd25519Validator extends AbstractValidator
+class SkEcdsaValidator extends AbstractValidator
 {
-    public SSH_KEY $type = SSH_KEY::SK_ED25519;
+    public SSH_KEY $type = SSH_KEY::SK_ECDSA_SHA2_NITSTP256;
 }

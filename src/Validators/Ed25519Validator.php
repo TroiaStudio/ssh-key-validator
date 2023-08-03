@@ -7,8 +7,5 @@ use TroiaStudio\SshKeyValidator\Enums\SSH_KEY;
 
 class Ed25519Validator extends AbstractValidator
 {
-    public function validate(string $key): bool
-    {
-        return $this->validateByPattern($key, SSH_KEY::ED25519);
-    }
+    public SSH_KEY $type = SSH_KEY::ED25519;
 }
